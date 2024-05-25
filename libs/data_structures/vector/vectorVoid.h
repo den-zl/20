@@ -1,6 +1,9 @@
 #ifndef INC_VECTORVOID_H
 #define INC_VECTORVOID_H
+
+
 #include <limits.h>
+#include <stdbool.h>
 
 typedef struct vectorVoid {
     void *data;             // указатель на нулевой элемент вектора
@@ -34,5 +37,6 @@ void setVectorValueV(vectorVoid *v, size_t index, void *source);
 void popBackV(vectorVoid *v);
 
 void pushBackV(vectorVoid *v, void *source);
+
 
 #endif

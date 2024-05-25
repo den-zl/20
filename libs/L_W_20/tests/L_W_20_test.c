@@ -80,9 +80,28 @@ void testAll_MedianFilter() {
     }
 }
 
+void testAll_showVisitStats() {
+    char stats[] = "cpdomains = [\"900 google.mail.com\", \"50 yahoo.com\", \"1 intel.mail.com\", \"5 wiki.org\"]\0";
+    vectorVoid res = showVisitStats(stats);
+
+    DomainCounter expDomains[] = {{951, "com"}, {900, "google.mail.com"},
+                                  {1, "intel.mail.com"}, {901, "mail.com"},
+                                  {5, "org"}, {5, "wiki.org"},
+                                  {50, "yahoo.com"}};
+
+    assert(sizeof(expDomains) / sizeof(DomainCounter) == res.size);
+    for (int i = 0; i < res.size; i++) {
+        DomainCounter domain;
+        getVectorValueV(&res, i, &domain);
+        assert(expDomains[i].counter == domain.counter);
+        ASSERT_STRING(expDomains[i].domain, domain.domain);
+    }
+}
+
 void test_L_W_20_All() {
     testAll_fillMatrix();
     testAll_gameLife();
     testAll_MedianFilter();
+    testAll_showVisitStats();
 
 }
