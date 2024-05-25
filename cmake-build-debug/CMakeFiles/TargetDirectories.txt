@@ -15,3 +15,6 @@
 /Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/file_io/CMakeFiles/file_io.dir
 /Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/file_io/CMakeFiles/edit_cache.dir
 /Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/file_io/CMakeFiles/rebuild_cache.dir
+/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/L_W_20/CMakeFiles/L_W_20.dir
+/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/L_W_20/CMakeFiles/edit_cache.dir
+/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/L_W_20/CMakeFiles/rebuild_cache.dir

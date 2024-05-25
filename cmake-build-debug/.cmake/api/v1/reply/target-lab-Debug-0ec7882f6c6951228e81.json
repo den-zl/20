@@ -105,6 +105,10 @@
 		{
 			"backtrace" : 5,
 			"id" : "file_io::@93145cb08224930d1a1b"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "L_W_20::@db0a3c53659b89e54af8"
 		}
 	],
 	"id" : "lab::@6890427a1f51a3e7e1df",
@@ -142,7 +146,7 @@
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "-lL_W_20",
+				"fragment" : "libs/L_W_20/libL_W_20.a",
 				"role" : "libraries"
 			}
 		],

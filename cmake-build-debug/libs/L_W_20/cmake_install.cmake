@@ -1,4 +1,4 @@
-# Install script for directory: /Users/denzl/CLionProjects/2sem/19.20/lab_20/libs
+# Install script for directory: /Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/L_W_20
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,30 +35,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/data_structures/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/algorithms/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/string/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/file_io/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug/libs/L_W_20/cmake_install.cmake")
 endif()
 

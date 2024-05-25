@@ -12,10 +12,6 @@ add_executable(lab main.c
         libs/data_structures/matrix/matrix.c
         libs/string/tasks/string_.c
         libs/string/tasks/string_.h
-        libs/L_W_20/tasks/L_W_20.c
-        libs/L_W_20/tasks/L_W_20.h
-        libs/L_W_20/tests/L_W_20_test.c
-        libs/L_W_20/tests/L_W_20_test.h
 )
 
 add_subdirectory(libs)

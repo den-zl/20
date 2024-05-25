@@ -2,16 +2,12 @@
 #include <time.h>
 #include <stdlib.h>
 #include <memory.h>
-#include "libs/data_structures/vector/vector.h"
-#include "libs/string/tasks/string_.h"
-#include "libs/string/tests/string_test.h"
-#include "libs/file_io/tests/file_io_test.h"
-#include "libs/file_io/tasks/file_io.h"
-
+#include "libs/L_W_20/tasks/L_W_20.h"
+#include "libs/L_W_20/tests/L_W_20_test.h"
 
 int main() {
 
-    testFileAll();
+    test_L_W_20_All();
 
     return 0;
 }
