@@ -89,7 +89,7 @@ build CMakeFiles/lab.dir/libs/string/tasks/string_.c.o: C_COMPILER__lab_unscanne
 
 build lab: C_EXECUTABLE_LINKER__lab_Debug CMakeFiles/lab.dir/main.c.o CMakeFiles/lab.dir/libs/data_structures/vector/vector.c.o CMakeFiles/lab.dir/libs/data_structures/vector/vectorVoid.c.o CMakeFiles/lab.dir/libs/data_structures/matrix/matrix.c.o CMakeFiles/lab.dir/libs/string/tasks/string_.c.o | libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a libs/string/libstring.a libs/file_io/libfile_io.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/file_io/libfile_io.a libs/string/libstring.a
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
-  LINK_LIBRARIES = libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  libs/string/libstring.a  libs/file_io/libfile_io.a
+  LINK_LIBRARIES = libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  libs/string/libstring.a  libs/file_io/libfile_io.a  -lL_W_20
   OBJECT_DIR = CMakeFiles/lab.dir
   POST_BUILD = :
   PRE_LINK = :

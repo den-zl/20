@@ -1,4 +1,7 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/denzl/CLionProjects/2sem/19.20/lab_20 -B /Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug
 -- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/denzl/CLionProjects/2sem/19.20/lab_20/cmake-build-debug
+CMake Error at libs/L_W_20/CMakeLists.txt:1 (add_library):
+  No SOURCES given to target: L_W_20
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
