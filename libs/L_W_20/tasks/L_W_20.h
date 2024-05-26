@@ -44,4 +44,6 @@ char* getMinStringNum(char *pattern);
 
 vectorVoid maxThree(int *nums, int len);
 
+char* getShuffledString(char *symbols, int *indices, int len);
+
 #endif

@@ -385,3 +385,16 @@ vectorVoid maxThree(int *nums, int len) {
 
     return res;
 }
+
+char* getShuffledString(char *symbols, int *indices, int len) {
+    char *res = malloc(sizeof(char) * (len + 1));
+
+    for (int i = 0; i < len; i++) {
+        char l = symbols[i];
+        int r = indices[i];
+        res[r] = l;
+    }
+    res[len] = '\0';
+
+    return res;
+}
