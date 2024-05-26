@@ -5,6 +5,7 @@
 #include "L_W_20.h"
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/string/tasks/string_.h"
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/data_structures/vector/vectorVoid.h"
+#include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/data_structures/matrix/matrix.h"
 
 
 #define STATS_HEADER "cpdomains = ["
@@ -266,4 +267,36 @@ vectorVoid showVisitStats(char *stats) {
     deleteVectorV(&data);
 
     return group;
+}
+
+int getNumSubmatrices(matrix *m) {
+    matrix nums = getMemMatrix(m->nRows, m->nCols);
+    int val = 0;
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            if (m->values[i][j] == 0) {
+                val = 0;
+            } else {
+                if (j > 0) {
+                    val = nums.values[i][j - 1] + 1;
+                } else {
+                    val = 1;
+                }
+            }
+            nums.values[i][j] = val;
+        }
+    }
+    int count = 0;
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            int minWidth = nums.values[i][j];
+            for (int k = i; k < m->nRows; k++) {
+                if (minWidth > nums.values[k][j]) {
+                    minWidth = nums.values[k][j];
+                }
+                count += minWidth;
+            }
+        }
+    }
+    return count;
 }

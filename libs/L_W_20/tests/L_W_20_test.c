@@ -2,6 +2,7 @@
 #include <assert.h>
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/L_W_20/tasks/L_W_20.h"
 #include "L_W_20_test.h"
+#include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/data_structures/matrix/matrix.h"
 
 
 void testAll_fillMatrix() {
@@ -98,10 +99,22 @@ void testAll_showVisitStats() {
     }
 }
 
+void testAll_getNumSubmatrices() {
+    int n = 3;
+    int m = 3;
+
+    int test[3][3] = {{1,0,1},{1,1,0},{1,1,0}};
+    matrix newMatrix = createMatrixFromArray(*test, n, m);
+
+    int res = getNumSubmatrices(&newMatrix);
+    assert(res == 13);
+}
+
 void test_L_W_20_All() {
     testAll_fillMatrix();
     testAll_gameLife();
     testAll_MedianFilter();
     testAll_showVisitStats();
+    testAll_getNumSubmatrices();
 
 }

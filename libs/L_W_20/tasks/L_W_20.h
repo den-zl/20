@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/string/tasks/string_.h"
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/data_structures/vector/vectorVoid.h"
+#include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/data_structures/matrix/matrix.h"
 
 typedef struct DomainRecord {
     long counter;
@@ -31,5 +32,6 @@ void medianFilter(int *matrix, int filter, int n, int m);
 int compareWordDescriptors(const void *wordPtr1, const void *wordPtr2);
 vectorVoid showVisitStats(char *stats);
 
+int getNumSubmatrices(matrix *m);
 
 #endif
