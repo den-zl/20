@@ -18,6 +18,12 @@ typedef struct DomainCounter {
     char domain[255];
 } DomainCounter;
 
+typedef struct TreeItem {
+    int level;
+    int value;
+    int type;
+    int idx;
+} TreeItem;
 
 void printMatrix(int *matrix, int n, int m);
 void fillMatrix(int *matrix, size_t sizeOfMatrix, int *query, size_t queryCount);
@@ -36,5 +42,6 @@ int getNumSubmatrices(matrix *m);
 
 char* getMinStringNum(char *pattern);
 
+vectorVoid maxThree(int *nums, int len);
 
 #endif

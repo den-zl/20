@@ -121,6 +121,20 @@ void testAll_getMinStringNum() {
     ASSERT_STRING("4321", res2)
 }
 
+void testAll_maxThree() {
+    int nums[6] = {3,2,1,6,0,5};
+
+    vectorVoid res = maxThree(nums, sizeof(nums) / sizeof(int));
+
+    int test[9] = {6,3,5,-1,2,0,-1,-1,1};
+    assert(sizeof(test) / sizeof(int) == res.size);
+    for (int i = 0; i < res.size; i++) {
+        TreeItem treeItem;
+        getVectorValueV(&res, i, &treeItem);
+        assert(test[i] == treeItem.value);
+    }
+}
+
 void test_L_W_20_All() {
     testAll_fillMatrix();
     testAll_gameLife();
@@ -128,5 +142,6 @@ void test_L_W_20_All() {
     testAll_showVisitStats();
     testAll_getNumSubmatrices();
     testAll_getMinStringNum();
+    testAll_maxThree();
 
 }
