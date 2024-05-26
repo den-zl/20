@@ -46,4 +46,7 @@ vectorVoid maxThree(int *nums, int len);
 
 char* getShuffledString(char *symbols, int *indices, int len);
 
+size_t getFileWithSmallerValues(char *fileInputPath, char *fileOutputPath, int n);
+
+
 #endif

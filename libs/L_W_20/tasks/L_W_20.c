@@ -12,14 +12,16 @@
 #define STATS_END "]"
 
 int compareDomainCounterNames(const void *domainCounterPtr1, const void *domainCounterPtr2) {
-    DomainRecord *domainCounter1 = (DomainRecord *)domainCounterPtr1;
-    DomainRecord *domainCounter2 = (DomainRecord *)domainCounterPtr2;
+    DomainRecord *domainCounter1 = (DomainRecord *) domainCounterPtr1;
+    DomainRecord *domainCounter2 = (DomainRecord *) domainCounterPtr2;
+
     WordDescriptor word1 = domainCounter1->domain;
     WordDescriptor word2 = domainCounter2->domain;
 
     unsigned long len1 = word1.end - word1.begin;
     unsigned long len2 = word2.end - word2.begin;
     unsigned long min_len = len1;
+
     if (min_len > len2) {
         min_len = len2;
     }
@@ -31,12 +33,13 @@ int compareDomainCounterNames(const void *domainCounterPtr1, const void *domainC
             res = len1 > len2 ? 1 : -1;
         }
     }
+
     return res;
 }
 
 int compareTreeItemByLevel(const void *treeItemPtr1, const void *treeItemPtr2) {
-    TreeItem *treeItem1 = (TreeItem *)treeItemPtr1;
-    TreeItem *treeItem2 = (TreeItem *)treeItemPtr2;
+    TreeItem *treeItem1 = (TreeItem *) treeItemPtr1;
+    TreeItem *treeItem2 = (TreeItem *) treeItemPtr2;
 
     int diffLevel = treeItem1->level - treeItem2->level;
 
@@ -48,14 +51,15 @@ int compareTreeItemByLevel(const void *treeItemPtr1, const void *treeItemPtr2) {
 }
 
 int compareInts1(const void *intPtr1, const void *intPtr2) {
-    int *num1 = (int *)intPtr1;
-    int *num2 = (int *)intPtr2;
+    int *num1 = (int *) intPtr1;
+    int *num2 = (int *) intPtr2;
 
     return *num2 - *num1;
 }
 
 void printMatrix(int *matrix, int n, int m) {
-    int (*tempMatrix)[m] = (int (*)[m])matrix;
+    int (*tempMatrix)[m] = (int (*)[m]) matrix;
+
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             printf("%d\t", tempMatrix[i][j]);
@@ -64,9 +68,10 @@ void printMatrix(int *matrix, int n, int m) {
     }
 }
 
+
 void fillMatrix(int *matrix, size_t sizeOfMatrix, int *query, size_t queryCount) {
-    int (*tempMatrix)[sizeOfMatrix] = (int (*)[sizeOfMatrix])matrix;
-    int (*tempQuery)[4] = (int (*)[4])query;
+    int (*tempMatrix)[sizeOfMatrix] = (int (*)[sizeOfMatrix]) matrix;
+    int (*tempQuery)[4] = (int (*)[4]) query;
 
     for (int i = 0; i < queryCount; i++) {
         int *curQuery = tempQuery[i];
@@ -81,7 +86,8 @@ void fillMatrix(int *matrix, size_t sizeOfMatrix, int *query, size_t queryCount)
 
 
 int countNeighbors(int *matrix, int n, int m, int col, int row) {
-    int (*tempMatrix)[m] = (int (*)[m])matrix;
+    int (*tempMatrix)[m] = (int (*)[m]) matrix;
+
     int row1 = row - 1;
     int row2 = row + 1;
     int col1 = col - 1;
@@ -93,6 +99,7 @@ int countNeighbors(int *matrix, int n, int m, int col, int row) {
     col2 = col2 >= m ? m - 1 : col2;
 
     int counter = 0;
+
     for (int i = row1; i <= row2; i++) {
         for (int j = col1; j <= col2; j++) {
             if ((i == row) && (j == col)) {
@@ -102,13 +109,15 @@ int countNeighbors(int *matrix, int n, int m, int col, int row) {
             counter += tempMatrix[i][j];
         }
     }
+
     return counter;
 }
 
 void gameLife(int *matrix, size_t n, size_t m) {
-    int (*tempMatrix)[m] = (int (*)[m])matrix;
+    int (*tempMatrix)[m] = (int (*)[m]) matrix;
     int sums[n][m];
-    int (*tempMatrix1)[m] = (int (*)[m])sums;
+    int (*tempMatrix1)[m] = (int (*)[m]) sums;
+
     for (int row = 0; row < n; row++) {
         for (int col = 0; col < m; col++) {
             int res = countNeighbors(matrix, n,  m, col, row);
@@ -134,8 +143,9 @@ void gameLife(int *matrix, size_t n, size_t m) {
     }
 }
 
+
 int calculateMedianVector(int *matrix, int max_col, int row, int col, int *arrayOfNums, int filter_size) {
-    int (*tempMatrix)[max_col] = (int (*)[max_col])matrix;
+    int (*tempMatrix)[max_col] = (int (*)[max_col]) matrix;
     int k = 0;
 
     for (int i = row; i < row + filter_size; i++) {
@@ -143,6 +153,7 @@ int calculateMedianVector(int *matrix, int max_col, int row, int col, int *array
             arrayOfNums[k++] = tempMatrix[i][j];
         }
     }
+
     qsort(arrayOfNums, k, sizeof(int), compareInts1);
     int res = arrayOfNums[((filter_size * filter_size) - 1) / 2];
 
@@ -167,12 +178,14 @@ void medianFilter(int *matrix, int filter, int n, int m) {
     // Fill median values
     i = 0;
     int ofset = (filter - 1) / 2;
+
     for (int row = ofset; row <= n - filter + ofset; row++) {
         for (int col = ofset; col <= m - filter + ofset; col++) {
             tempMatrix[row][col] = arrOfMedians[i++];
         }
     }
 }
+
 
 void parsedDomainStat(vectorVoid *data, char *start, char *end) {
     long counter = 0;
@@ -282,8 +295,10 @@ vectorVoid showVisitStats(char *stats) {
     return group;
 }
 
+
 int getNumSubmatrices(matrix *m) {
     matrix nums = getMemMatrix(m->nRows, m->nCols);
+
     int val = 0;
     for (int i = 0; i < m->nRows; i++) {
         for (int j = 0; j < m->nCols; j++) {
@@ -299,6 +314,7 @@ int getNumSubmatrices(matrix *m) {
             nums.values[i][j] = val;
         }
     }
+
     int count = 0;
     for (int i = 0; i < m->nRows; i++) {
         for (int j = 0; j < m->nCols; j++) {
@@ -311,8 +327,10 @@ int getNumSubmatrices(matrix *m) {
             }
         }
     }
+
     return count;
 }
+
 
 char* getMinStringNum(char *pattern) {
     int len = strlen_(pattern);
@@ -324,6 +342,7 @@ char* getMinStringNum(char *pattern) {
 
     int currentNumber = 2;
     int lastIIndex = 0;
+
     for (int i = 0; i < len; i++) {
         if (pattern[i] == 'I') {
             num[i + 1] = currentNumber++;
@@ -341,8 +360,10 @@ char* getMinStringNum(char *pattern) {
         res[i] = num[i] + '0';
     }
     res[len + 1] = '\0';
+
     return res;
 }
+
 
 void maxThreeImpl(int *nums, int level, int start, int end, int type, int *idx, vectorVoid *res) {
     (*idx)++;
@@ -386,6 +407,7 @@ vectorVoid maxThree(int *nums, int len) {
     return res;
 }
 
+
 char* getShuffledString(char *symbols, int *indices, int len) {
     char *res = malloc(sizeof(char) * (len + 1));
 
@@ -397,4 +419,33 @@ char* getShuffledString(char *symbols, int *indices, int len) {
     res[len] = '\0';
 
     return res;
+}
+
+
+size_t getFileWithSmallerValues(char *fileInputPath, char *fileOutputPath, int n) {
+    FILE *fp = fopen(fileInputPath, "r");
+    FILE *fd = fopen(fileOutputPath, "w+");
+
+    if (fp == NULL) {
+        fprintf(stderr, "Input file cannot be opened");
+        exit(1);
+    }
+    if (fd == NULL) {
+        fprintf(stderr, "Output file cannot be opened");
+        exit(1);
+    }
+
+    size_t counter = 0;
+
+    int val;
+    while (fscanf(fp, "%d", &val) > 0) {
+        if (val < n) {
+            fprintf(fd, "%d\n", val);
+            counter++;
+        }
+    }
+    fclose(fp);
+    fclose(fd);
+
+    return counter;
 }

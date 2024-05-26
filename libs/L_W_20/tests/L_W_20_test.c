@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/L_W_20/tasks/L_W_20.h"
 #include "L_W_20_test.h"
 #include "/Users/denzl/CLionProjects/2sem/19.20/lab_20/libs/data_structures/matrix/matrix.h"
@@ -28,6 +29,7 @@ void testAll_fillMatrix() {
     }
 }
 
+
 void testAll_gameLife() {
     int n = 4;
     int m = 3;
@@ -42,6 +44,7 @@ void testAll_gameLife() {
         }
     }
 }
+
 
 void testAll_MedianFilter() {
     int filter = 5;
@@ -81,6 +84,7 @@ void testAll_MedianFilter() {
     }
 }
 
+
 void testAll_showVisitStats() {
     char stats[] = "cpdomains = [\"900 google.mail.com\", \"50 yahoo.com\", \"1 intel.mail.com\", \"5 wiki.org\"]\0";
     vectorVoid res = showVisitStats(stats);
@@ -99,6 +103,7 @@ void testAll_showVisitStats() {
     }
 }
 
+
 void testAll_getNumSubmatrices() {
     int n = 3;
     int m = 3;
@@ -110,6 +115,7 @@ void testAll_getNumSubmatrices() {
     assert(res == 13);
 }
 
+
 void testAll_getMinStringNum() {
     char *pattern1 = "IIIDIDDD";
     char *pattern2 = "DDD";
@@ -120,6 +126,7 @@ void testAll_getMinStringNum() {
     ASSERT_STRING("123549876", res1)
     ASSERT_STRING("4321", res2)
 }
+
 
 void testAll_maxThree() {
     int nums[6] = {3,2,1,6,0,5};
@@ -135,6 +142,7 @@ void testAll_maxThree() {
     }
 }
 
+
 void testAll_getShuffledString() {
     char s[] = "abap";
     int indices[] = {0,3,2,1};
@@ -143,6 +151,28 @@ void testAll_getShuffledString() {
 
     ASSERT_STRING("apab\0", res)
 }
+
+
+void testAll_getFileWithSmallerValues() {
+    int n = 700;
+    srand((unsigned) time(NULL));
+    FILE *fp = fopen ("file_test1.txt", "w+");
+
+    int expArray[1000];
+    int idx = 0;
+    for (int i = 0; i < 1000; i++) {
+        int val = rand();
+        if (val < n) {
+            expArray[idx++] = val;
+        }
+        fprintf(fp, "%d\n", val);
+    }
+    fclose(fp);
+
+    size_t res = getFileWithSmallerValues("file_test1.txt", "file_test2.txt", n);
+    assert(idx == res);
+}
+
 
 void test_L_W_20_All() {
     testAll_fillMatrix();
@@ -153,5 +183,5 @@ void test_L_W_20_All() {
     testAll_getMinStringNum();
     testAll_maxThree();
     testAll_getShuffledString();
-
+    testAll_getFileWithSmallerValues();
 }
