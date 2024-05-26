@@ -110,11 +110,23 @@ void testAll_getNumSubmatrices() {
     assert(res == 13);
 }
 
+void testAll_getMinStringNum() {
+    char *pattern1 = "IIIDIDDD";
+    char *pattern2 = "DDD";
+
+    char *res1 = getMinStringNum(pattern1);
+    char *res2 = getMinStringNum(pattern2);
+
+    ASSERT_STRING("123549876", res1)
+    ASSERT_STRING("4321", res2)
+}
+
 void test_L_W_20_All() {
     testAll_fillMatrix();
     testAll_gameLife();
     testAll_MedianFilter();
     testAll_showVisitStats();
     testAll_getNumSubmatrices();
+    testAll_getMinStringNum();
 
 }

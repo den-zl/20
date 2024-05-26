@@ -34,4 +34,7 @@ vectorVoid showVisitStats(char *stats);
 
 int getNumSubmatrices(matrix *m);
 
+char* getMinStringNum(char *pattern);
+
+
 #endif
